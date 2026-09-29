@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Alliance — Prototype</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><span>◆</span> ALLIANCE</div>
+    <div class="side-label">ESPACE ORGANISATION</div>
+    <button class="nav active" data-view="dashboard">▦ Tableau de bord</button>
+    <button class="nav" data-view="create">＋ Créer une alliance</button>
+    <div class="side-bottom">
+      <div class="mini">Prototype local</div>
+      <button id="resetBtn" class="ghost">Réinitialiser les données</button>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <div>
+        <div class="eyebrow">GESTION DES ALLIANCES</div>
+        <h1 id="pageTitle">Tableau de bord</h1>
+      </div>
+      <button class="primary" id="headerCreate">＋ Nouvelle alliance</button>
+    </header>
+
+    <section id="dashboard" class="view">
+      <div class="hero">
+        <div>
+          <div class="pill">● Système opérationnel</div>
+          <h2>Gérez vos alliances<br><span>en un seul endroit.</span></h2>
+          <p>Chaque alliance peut durer de 1 à 4 jours. À son expiration, l'organisation entre automatiquement en période de blocage de 7 jours.</p>
+        </div>
+        <div class="hero-card">
+          <div class="muted">Règle de disponibilité</div>
+          <strong>4 jours max.</strong>
+          <div class="line"></div>
+          <strong>7 jours de blocage</strong>
+          <div class="muted">après expiration</div>
+        </div>
+      </div>
+
+      <div id="stats" class="stats"></div>
+      <div class="section-title"><h3>Vos alliances</h3><span id="count"></span></div>
+      <div id="tableWrap"></div>
+    </section>
+
+    <section id="create" class="view hidden">
+      <div class="form-card">
+        <div class="form-head">
+          <div><div class="eyebrow">NOUVELLE ALLIANCE</div><h2>Créer une alliance</h2></div>
+          <div class="step">01 / 01</div>
+        </div>
+        <form id="allianceForm">
+          <label>Nom de l'organisation
+            <input id="org" required maxlength="60" placeholder="Ex. Les Yakuzas">
+            <small>Le verrouillage de 7 jours est associé à ce nom.</small>
+          </label>
+          <label>Organisation / personnes alliées
+            <input id="partner" required maxlength="80" placeholder="Ex. Organisation X">
+          </label>
+          <label>Type d'alliance</label>
+          <div class="choices">
+            <label class="choice"><input type="radio" name="type" value="Commerciale" checked><span>🏪</span><b>Commerciale</b><small>Échanges et coopération commerciale</small></label>
+            <label class="choice"><input type="radio" name="type" value="PVP"><span>⚔️</span><b>PVP</b><small>Alliance orientée combat</small></label>
+            <label class="choice"><input type="radio" name="type" value="Commerciale + PVP"><span>🤝</span><b>Les deux</b><small>Commerciale et PVP</small></label>
+          </div>
+          <label>Durée de l'alliance
+            <div class="duration">
+              <button type="button" class="dur" data-days="1">1 jour</button>
+              <button type="button" class="dur" data-days="2">2 jours</button>
+              <button type="button" class="dur selected" data-days="3">3 jours</button>
+              <button type="button" class="dur" data-days="4">4 jours</button>
+            </div>
+            <small>Minimum 1 jour · Maximum 4 jours</small>
+          </label>
+          <div id="lockNotice" class="notice hidden"></div>
+          <button class="primary big" type="submit">Créer l'alliance</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</div>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
