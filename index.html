@@ -57,11 +57,12 @@
         </div>
         <form id="allianceForm">
           <label>Nom de l'organisation
-            <input id="org" required maxlength="60" placeholder="Ex. Les Yakuzas">
-            <small>Le verrouillage de 7 jours est associé à ce nom.</small>
+            <select id="org" required></select>
+            <small>Les organisations sont prédéfinies. Le délai s'applique aussi lorsqu'une organisation est déjà alliée.</small>
           </label>
-          <label>Organisation / personnes alliées
-            <input id="partner" required maxlength="80" placeholder="Ex. Organisation X">
+          <label>Organisation alliée
+            <select id="partner" required></select>
+            <small>Une organisation ne peut pas être utilisée dans une nouvelle alliance pendant son alliance active ou son délai de 7 jours.</small>
           </label>
           <label>Type d'alliance</label>
           <div class="choices">
